@@ -1,3 +1,16 @@
+let body = document.querySelector("body")
+
+body.addEventListener("mousemove", (dets)=> {
+   gsap.to(".curser", {
+    x: dets.clientX,
+    y: dets.clientY,
+    duration:0.3,
+    ease:"Power4.out",
+    scale:1
+   })
+})
+
+
 function locomotiveAnimation(){
   gsap.registerPlugin(ScrollTrigger);
 
@@ -47,6 +60,7 @@ function navAnimation() {
   
     tl.to(".nav-link h5 span", {
       y:0,
+      opacity:1,
       stagger:{
         amount:0.6
       }
@@ -59,6 +73,7 @@ function navAnimation() {
   
     tl.to(".nav-link h5 span", {
       y:25,
+      opacity:0,
       stagger:{
         amount:0.2
       }
@@ -83,6 +98,7 @@ function page2Animation() {
   const rightelem =  document.querySelectorAll(".right-elem")
   
 rightelem.forEach(function(elem){
+
   elem.addEventListener("mouseenter",()=>{
     let ele = elem.childNodes[3]
       gsap.to(ele, {
@@ -102,13 +118,12 @@ rightelem.forEach(function(elem){
    elem.addEventListener("mousemove",(dets)=> {
     let ele = elem.childNodes[3]
     gsap.to(ele, {
-      x:dets.x - ele.x-50,
-      y:dets.y - ele.y-100
-    })
+    x:dets.x - ele.x-50 ,
+    y:dets.y - ele.y-100, 
    })
   
   })
-}
+})}
 page2Animation()
 
 
@@ -147,16 +162,43 @@ const video = document.querySelector(".sect-right video")
 
 section.forEach(function(elem){
 let ele = elem.childNodes[3]
-console.log(ele)
+
+
+
  elem.addEventListener("mouseenter",function() {
+  let circle = elem.childNodes[5]
+  circle.style.opacity = 1
+  circle.style.scale = 1
+
      ele.style.opacity = 1
      ele.play()
  })
 
  elem.addEventListener("mouseleave",function() {
+  let circle = elem.childNodes[5]
+  circle.style.opacity = 0
+  circle.style.scale = 0
+
   ele.style.opacity = 0
   ele.load()
 })
+
+
+elem.addEventListener("mousemove",(dets) =>{
+  let circle = elem.childNodes[5]
+  let ele = circle.getBoundingClientRect().x
+  let ele2 = circle.getBoundingClientRect().y
+
+   console.log(ele)
+   console.log(ele2)
+
+   gsap.to(circle,{
+     x:dets.x - ele + 250 ,
+     y:dets.y - ele2-300
+   })
+
+  })
+ 
 })
 
 }

@@ -72,6 +72,7 @@ nav .nav-link h4 {
   font-size: 1.4rem;
   font-weight: 300;
   display: inline-block;
+  opacity: 0;
 }
 
 nav .nav-link h4:hover {
@@ -646,6 +647,30 @@ nav button {
 
 }
 
+
+.sect-right .circle-blue{
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: blue;
+  position: absolute;
+  opacity: 0;
+  scale: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+}
+
 .sect-right img {
   width: 100%;
   height: 90%;
@@ -660,6 +685,7 @@ nav button {
   height: 90%;
   opacity: 0;
   object-fit: cover;
+ 
 }
 
 
@@ -731,6 +757,7 @@ nav button {
 
 
 }
+
 
 #page7-content {
 
@@ -1349,3 +1376,20 @@ summary::marker {
 
 
 
+
+
+.curser{
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  mix-blend-mode:difference;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  position: fixed;
+  top:0;
+  z-index: 9999;
+  scale:0
+}
